@@ -1,7 +1,7 @@
 import "package:firebase_database/firebase_database.dart";
 import "package:firebase_database/ui/firebase_animated_list.dart";
 import "package:flutter/material.dart";
-import "package:flutter_practical/FIREBASE/Realtime_Database/add_user.dart";
+import "package:flutter_practical/FIREBASE/Notes_App//add_user.dart";
 
 class Home extends StatefulWidget {
   const Home({super.key});
