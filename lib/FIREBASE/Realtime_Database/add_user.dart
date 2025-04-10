@@ -2,9 +2,9 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
 class AddNote extends StatefulWidget {
-  Map<dynamic, dynamic>? user;
+  Map<dynamic, dynamic>? note;
 
-  AddNote({this.user});
+  AddNote({this.note});
 
   @override
   State<AddNote> createState() => _AddNoteState();
@@ -69,8 +69,8 @@ class _AddNoteState extends State<AddNote> {
 
   @override
   void initState() {
-    _titleController.text = widget.user == null ? "" : widget.user!["title"];
-    _descController.text = widget.user == null ? "" : widget.user!["desc"];
+    _titleController.text = widget.note == null ? "" : widget.note!["title"];
+    _descController.text = widget.note == null ? "" : widget.note!["desc"];
 
     super.initState();
   }
@@ -79,14 +79,14 @@ class _AddNoteState extends State<AddNote> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Realtime Database"),
+        title: Text(widget.note ==null?"Add Note":"Update Note"),
         centerTitle: true,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            widget.user == null ? "Add Note" : "Update Note",
+            widget.note == null ? "Add Note" : "Update Note",
             style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
           ),
           SizedBox(
@@ -139,13 +139,13 @@ class _AddNoteState extends State<AddNote> {
           ElevatedButton(
               onPressed: () {
                 if (_key.currentState!.validate()) {
-                  widget.user == null
+                  widget.note == null
                       ? addUser()
-                      : UpdateUser(widget.user!["id"]);
+                      : UpdateUser(widget.note!["id"]);
                 }
               },
               child: Text(
-                widget.user == null ? "Add Note" : "Update Note",
+                widget.note == null ? "Add Note" : "Update Note",
               ))
         ],
       ),

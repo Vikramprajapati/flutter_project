@@ -141,7 +141,7 @@ class _HomeState extends State<Home> {
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) => AddNote(
-                                        user: notes[index],
+                                        note: notes[index],
                                       ),
                                     ));
                               } else {
@@ -188,7 +188,7 @@ class _HomeState extends State<Home> {
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) => AddNote(
-                                        user: notes[index],
+                                        note: notes[index],
                                       ),
                                     ));
                               } else {
